@@ -25,10 +25,12 @@ function charts(sample) {
       orientation: "h"
   };
   var data = [trace1];
+// Use layout to define a title and hovermode 
   var layout = {
       title: "Top Ten OTUs for Test Subject ID: " +sample,
       hovermode: 'closest',
   };
+  // Render the plot 
   Plotly.newPlot("bar", data, layout);  
 
 // Create bubble chart that displays each sample 
@@ -44,11 +46,13 @@ function charts(sample) {
       }
   };
   var data = [trace1];
+  // Use layout to define a title, x-axis title and hovermode
   var layout = {
       title: 'Bacteria Cultures per Sample',
       hovermode: 'closest',
       xaxis: {title:"Operational Taxonomic Unit (OTU) ID " + sample},
   };
+  // Render the plot 
   Plotly.newPlot('bubble', data, layout); 
   }); 
 }
