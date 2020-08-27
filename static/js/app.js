@@ -2,7 +2,7 @@
 var url = "data/samples.json"
 
 // Fetch the JSON data and console log it
-d3.json(url).then(function(data) {
+d3.json(url).then((data) => {
   console.log(data);
 });
 
@@ -35,7 +35,7 @@ function charts(sample) {
   var trace1 = {
       x: result.otu_ids,
       y: result.sample_values,
-      text: result.otu_labels,
+      text: result.otu_labels,  
       mode: 'markers',
       marker: {
       size: result.sample_values,
@@ -83,17 +83,17 @@ function init() {
   var dropdown = d3.select("#selDataset");
 // Add all the ID's to the dropdown
     d3.json(url).then((data) => {
-      var subjectIds = data.names;
-      subjectIds.forEach((id) => {
+      var subjectId = data.names;
+      subjectId.forEach((id) => {
         dropdown
         .append("option")
         .text(id)
         .property("value", id);
       });
 // Use the first ID for initial plots and metadata section
-    const firstSubject = subjectIds[0];
-    charts(firstSubject);
-    metadataTable(firstSubject);
+    const firstID = subjectId[0];
+    charts(firstID);
+    metadataTable(firstID);
   });
 }
 
