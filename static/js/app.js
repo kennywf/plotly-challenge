@@ -9,6 +9,7 @@ d3.json(url).then((data) => {
 // Create charts
 function charts(sample) {    
   d3.json(url).then((data) => {
+// Grab the values from the json object to build the plots 
   var samples = data.samples;
 // Filter by id for each sample within samples   
   var filteredSamples = samples.filter(sampleSelection => sampleSelection.id == sample);
